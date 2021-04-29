@@ -11,10 +11,6 @@ const Login = ({title, angka}) => {
     let history = useHistory();
 
     useEffect(()=>{
-        console.log("Component Did Mount dijalankan");
-    }, []);
-
-    useEffect(()=>{
         console.log("Component Did Update");
     }, [WelcomeText, Email, Password]);
 
@@ -29,13 +25,18 @@ const Login = ({title, angka}) => {
         .then((res) => history.push("/Dashboard"))
         .catch((error) => console.log("Error", Error));
     };
+
+    const GoToRegister = () => {
+        history.push("/Register")
+    }
+
     return(
         <div className="container mt-2">
-            <NavBar />
+            {/* <NavBar /> */}
             <br/><h3 className="text-center fs-2">{WelcomeText}</h3>
         <div className="container mt-5">
             <h5>{title}</h5>
-            <p className="form-label mt-5">Email</p>
+            <p className="form-label mt-3">Email</p>
             <input 
                 className="form=control"
                 placeholder="Masukan email"
@@ -54,6 +55,14 @@ const Login = ({title, angka}) => {
                 onClick={handleSubmit}
                 className="btn btn-primary">
                 Sign In
+            </button>
+            <br/><br/><br/><br/><br/>
+            <h4> Don't have an account?</h4>
+            <button
+                type="button" 
+                onClick={GoToRegister}
+                className="btn btn-danger">
+                Click here
             </button>
         </div>
         </div>

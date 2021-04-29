@@ -47,7 +47,7 @@ const Register = () => {
 
     return (
         <div className="container mt-2">
-            <NavBar />
+            {/* <NavBar /> */}
             <br/><h4 className="text-center fs-2">Register</h4>
             <p className="form-label mt-4">Nama Lengkap</p>
             <input 
