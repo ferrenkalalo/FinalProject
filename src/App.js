@@ -1,11 +1,13 @@
-import React from 'react';
-import Routes from "./config/Routes";
+import React from 'react'
+import WelcomePage from './FINAL_PROJECT'
 
 const App = () => {
-    return(
-       <Routes />
-    );
-};
-
+    return (
+        <div>
+            <WelcomePage/>
+        </div>
+        
+    )
+}
 
 export default App;
