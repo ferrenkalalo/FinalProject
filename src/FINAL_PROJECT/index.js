@@ -17,8 +17,6 @@ const WelcomePage = () => {
                     <button className="btn btn-primary">Sign In</button>
                     <button className="btn btn-primary">Sign Up</button>
                 </div>
-                {/* <button className="btn btn-primary btn-lg btn-center">Sign Up</button>
-                <button className="btn btn-primary btn-lg">Sign In</button> */}
             </div>
         </div>
     )
