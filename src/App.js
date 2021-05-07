@@ -1,10 +1,10 @@
-import React from 'react'
-import WelcomePage from './FINAL_PROJECT/WelcomePage'
+import React from 'react';
+import Routes from './FINAL_PROJECT/Config/Routes';
 
 const App = () => {
     return (
         <div>
-            <WelcomePage/>
+            <Routes/>
         </div>
     )
 }
