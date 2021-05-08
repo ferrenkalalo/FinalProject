@@ -24,7 +24,6 @@ const RegisterPage = () => {
             console.log(userCredential.user.uid);
             alert('Success!');
 
-            //Simpan ke realtime database
             const userId = userCredential.user.uid
             firebase.database()
             .ref('users/' + userId)
@@ -39,13 +38,12 @@ const RegisterPage = () => {
         .catch((error) => {
             console.log(error);
             alert('ERROR!! The email is already used in another account!');
-            //tampilkan pesan error
         });
     };
 
     return (
-        <div className="container mt-2">
-            <br/><h4 className="text-center fs-2">Create New Account</h4><br/><br/>
+        <div className="p-5 bg-info text-dark">
+            <br/><h2 className="text-center text-white">Create New Account</h2><br/><br/>
             <div className="form-floating mt-5">
                <input  
                     className="form-control" 
@@ -78,7 +76,7 @@ const RegisterPage = () => {
             <button
                 type="button" 
                 onClick={OnSubmit}
-                className="btn btn-primary">
+                className="btn btn-primary d-grid gap-5 col-4 mx-auto">
                 Create New Account
             </button>
         </div>

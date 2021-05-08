@@ -14,15 +14,13 @@ const LoginPage = () => {
 
     const handleSubmit = () => {
         firebase.auth().signInWithEmailAndPassword(Email, Password)
-        .then((res) => history.push("/Dashboard"))
-        .catch((error) => console.log("Error", Error));
-
-        history.push("/ListMenu")
+        .then((res) => history.push("/ListMenu"))
+        .catch((error) => alert("Your email or password is incorrect", Error));
     };
 
     return (
-        <div className="container mt-5"><br/>
-            <h4 className="text-center fs-2">Sign In With Your Account</h4><br/><br/>
+        <div className="p-5 bg-info text-dark"><br/><br/>
+            <h2 className="text-center text-white">Sign In With Your Account</h2><br/><br/>
                 <div className="form-floating mt-5">
                <input 
                     type="email" 
@@ -32,7 +30,7 @@ const LoginPage = () => {
                     value={Email} 
                     onChange={(e)=> setEmail(e.target.value)}/>
                <label for="floatingEmail">Input Your Email Address</label>
-           </div>
+           </div><br/>
            <div className="form-floating mt-5">
                <input
                     type="password" 
@@ -43,12 +41,13 @@ const LoginPage = () => {
                     onChange={(e)=> setPassword(e.target.value)}/>
                <label for="floatingPassword">Input Your Password</label>
            </div> <br/><br/><br/>
-           <button
+            <button
                 type="button" 
                 onClick={handleSubmit}
-                className="btn btn-primary">
+                className="btn btn-primary d-grid gap-5 col-4 mx-auto">
                 Sign In
-            </button>
+            </button><br/><br/>
+           
         </div>
     )
 }
