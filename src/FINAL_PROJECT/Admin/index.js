@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import firebase from "../Config/Firebase"
+import NavBar from '../Navbar';
 
 const ListMenu = () => {
 
     const [Country, setCountry] = useState("");
     const [City, setCity] = useState("");
     const [Info, setInfo] = useState("");
+    const [Price, setPrice] = useState("");
     const [Concert, setConcert] = useState([]);
     const [Button, setButton] = useState("Save");
     const [SelectedConcert, setSelectedConcert] = useState({})
@@ -34,6 +36,7 @@ const ListMenu = () => {
         setCountry('');
         setCity('');
         setInfo('');
+        setPrice('');
         setButton('Save');
         setSelectedConcert({});
     }
@@ -43,6 +46,7 @@ const ListMenu = () => {
             Country: Country,
             City: City,
             Info: Info,
+            Price: Price,
         };
         if(Button === 'Save') {
             //untuk simpan data
@@ -59,6 +63,7 @@ const ListMenu = () => {
         setCountry(item.Country)
         setCity(item.City)
         setInfo(item.Info)
+        setPrice(item.Price)
         setButton("Update");
         setSelectedConcert(item)
     }
@@ -70,48 +75,63 @@ const ListMenu = () => {
     }
 
     return (
-        <div className="container mt-2">
-            <h3 className="text-center fs-2">Admin</h3><br/><br/>
-            <div className="col-5">
-                <p className="form-label mt-4">Country</p>
-                <input 
-                    className="form-control" 
-                    placeholder="please type the Country" 
-                    value={Country} 
-                    onChange={(e)=> setCountry(e.target.value)}/>
-                <p className="form-label mt-4">City</p>
-                <input 
-                    className="form-control" 
-                    placeholder="please type the City" 
-                    value={City} 
-                    onChange={(e)=> setCity(e.target.value)}/>
-                <p className="form-label mt-4">Info</p>
-                <input 
-                    className="form-control" 
-                    placeholder="please type the Info" 
-                    value={Info} 
-                    onChange={(e)=> setInfo(e.target.value)}/> 
-                <br/><br/>
-                <button className="btn btn-primary" onClick={OnSubmit}>
+        <div>
+            <NavBar/>
+        <div className="p-5 bg-info">
+            <h2 className="text-center text-white">ADMINISTRATION</h2>
+            <div className="">
+                <div className="form-floating mt-5">
+                    <input  
+                            className="form-control" 
+                            id="floatingCountry" 
+                            value={Country} 
+                            onChange={(e)=> setCountry(e.target.value)}/>
+                    <label for="floatingCountry">INPUT THE COUNTRY</label>
+                </div>
+                <div className="form-floating mt-5">
+                    <input  
+                            className="form-control" 
+                            id="floatingCity" 
+                            value={City} 
+                            onChange={(e)=> setCity(e.target.value)}/>
+                    <label for="floatingCity">INPUT THE CITY</label>
+                </div>
+                <div className="form-floating mt-5">
+                    <input  
+                            className="form-control" 
+                            id="floatingInfo" 
+                            value={Info} 
+                            onChange={(e)=> setInfo(e.target.value)}/>
+                    <label for="floatingInfo">INPUT THE INFO</label>
+                 </div>
+                 <div className="form-floating mt-5">
+                    <input  
+                            className="form-control" 
+                            id="floatingPrice" 
+                            value={Price} 
+                            onChange={(e)=> setPrice(e.target.value)}/>
+                    <label for="floatingPrice">INPUT THE PRICE</label>
+                 </div><br/>
+                <button className="btn btn-primary d-grid gap-5 col-4 mx-auto" onClick={OnSubmit}>
                    {Button}
-
-                </button>
+                </button><br/>
                 {
                     Button === 'Update' && (
                     <button 
-                    className="btn btn-secondary"
+                    className="btn btn-secondary d-grid gap-5 col-4 mx-auto"
                     onClick={ResetForm}>
                     Cancel Update
                     </button>
                 )}
-            </div><br/>
-                <hr/>
-                <table className="table table-light table-striped table-hover ">
+            </div><br/><br/><br/>
+            <hr/>
+                <table className="table table-light table-striped table-hover mt-5">
                     <thead>
                         <tr>
                             <th>Country</th>
                             <th>City</th>
                             <th>Info</th>
+                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -122,6 +142,7 @@ const ListMenu = () => {
                                     <td>{item.Country}</td>
                                     <td>{item.City}</td>
                                     <td>{item.Info}</td>
+                                    <td>{item.Price}</td>
                                     <td>
                                         <button 
                                             className="btn btn-primary"
@@ -139,6 +160,7 @@ const ListMenu = () => {
                         }
                     </tbody>
                 </table>
+        </div>
         </div>
     )
 }

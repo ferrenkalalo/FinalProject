@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Admin from '../../Admin';
 import ListMenu from '../../ListMenu';
 import LoginPage from '../../LoginPage';
+import Menu from '../../Menu';
 import RegisterPage from '../../RegisterPage';
 import WelcomePage from '../../WelcomePage';
 
@@ -25,6 +26,9 @@ const Routes = () => {
                     </Route>
                     <Route path="/Admin">
                         <Admin/>
+                    </Route>
+                    <Route path="/Menu">
+                        <Menu/>
                     </Route>
                 </Switch>
             </Router>

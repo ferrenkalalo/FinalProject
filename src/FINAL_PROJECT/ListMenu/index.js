@@ -27,15 +27,15 @@ const Admin = () => {
     }, []);
 
     return (
-        <div>
-            
-            <table className="table table-light table-striped table-hover ">
-                    <thead>
+        <div className="p-5 bg-light">
+            <h1 className="text-center text-info"> LIST CONCERT CITY </h1><br/><br/>
+            <table className="table table-info table-borderless">
+                    <thead className="table-info">
                         <tr>
                             <th>Country</th>
                             <th>City</th>
                             <th>Info</th>
-                            <th>Action</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,19 +45,7 @@ const Admin = () => {
                                     <td>{item.Country}</td>
                                     <td>{item.City}</td>
                                     <td>{item.Info}</td>
-                                    <td>
-                                        TEST
-                                        {/* <button 
-                                            className="btn btn-primary"
-                                            onClick={()=> OnUpdateData(item)}>
-                                            Update
-                                        </button>
-                                        <button 
-                                            className="btn btn-danger"
-                                            onClick={()=> OnDeleteData(item)}>
-                                            Delete
-                                        </button> */}
-                                    </td>
+                                    <td>{item.Price}</td>
                                 </tr>
                             ))
                         }
