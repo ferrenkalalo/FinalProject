@@ -14,7 +14,7 @@ const LoginPage = () => {
 
     const handleSubmit = () => {
         firebase.auth().signInWithEmailAndPassword(Email, Password)
-        .then((res) => history.push("/ListMenu"))
+        .then((res) => history.push("/Menu"))
         .catch((error) => alert("Your email or password is incorrect", Error));
     };
 

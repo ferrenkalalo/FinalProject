@@ -1,11 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
-import Admin from '../../Admin';
-import ListMenu from '../../ListMenu';
+import Request from '../../Request';
 import LoginPage from '../../LoginPage';
 import Menu from '../../Menu';
 import RegisterPage from '../../RegisterPage';
 import WelcomePage from '../../WelcomePage';
+import List from '../../List';
+import AboutUs from '../../AboutUs';
 
 const Routes = () => {
     return (
@@ -21,14 +22,17 @@ const Routes = () => {
                     <Route path="/RegisterPage">
                         <RegisterPage/>
                     </Route>
-                    <Route path="/ListMenu">
-                        <ListMenu/>
+                    <Route path="/List">
+                        <List/>
                     </Route>
-                    <Route path="/Admin">
-                        <Admin/>
+                    <Route path="/Request">
+                        <Request/>
                     </Route>
                     <Route path="/Menu">
                         <Menu/>
+                    </Route>
+                    <Route path="/AboutUs">
+                        <AboutUs/>
                     </Route>
                 </Switch>
             </Router>

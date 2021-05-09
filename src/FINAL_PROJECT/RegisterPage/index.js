@@ -22,7 +22,7 @@ const RegisterPage = () => {
         .createUserWithEmailAndPassword(Email, Password)
         .then((userCredential) => {
             console.log(userCredential.user.uid);
-            alert('Success!');
+            alert('SUCCESS!');
 
             const userId = userCredential.user.uid
             firebase.database()
@@ -32,7 +32,7 @@ const RegisterPage = () => {
             setEmail('');
             setPassword('');
 
-            history.push("/ListMenu")
+            history.push("/Menu")
 
         })
         .catch((error) => {

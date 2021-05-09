@@ -2,12 +2,11 @@ import React, {useEffect, useState} from 'react';
 import firebase from "../Config/Firebase"
 import NavBar from '../Navbar';
 
-const ListMenu = () => {
+const Request = () => {
 
     const [Country, setCountry] = useState("");
     const [City, setCity] = useState("");
-    const [Info, setInfo] = useState("");
-    const [Price, setPrice] = useState("");
+    const [Note, setNote] = useState("");
     const [Concert, setConcert] = useState([]);
     const [Button, setButton] = useState("Save");
     const [SelectedConcert, setSelectedConcert] = useState({})
@@ -35,8 +34,7 @@ const ListMenu = () => {
     const ResetForm = () => {
         setCountry('');
         setCity('');
-        setInfo('');
-        setPrice('');
+        setNote('');
         setButton('Save');
         setSelectedConcert({});
     }
@@ -45,8 +43,7 @@ const ListMenu = () => {
         const data = {
             Country: Country,
             City: City,
-            Info: Info,
-            Price: Price,
+            Note: Note,
         };
         if(Button === 'Save') {
             //untuk simpan data
@@ -62,8 +59,7 @@ const ListMenu = () => {
     const OnUpdateData = (item) => {
         setCountry(item.Country)
         setCity(item.City)
-        setInfo(item.Info)
-        setPrice(item.Price)
+        setNote(item.Note)
         setButton("Update");
         setSelectedConcert(item)
     }
@@ -78,7 +74,7 @@ const ListMenu = () => {
         <div>
             <NavBar/>
         <div className="p-5 bg-info">
-            <h2 className="text-center text-white">ADMINISTRATION</h2>
+            <h2 className="text-center text-white">REQUEST HERE</h2>
             <div className="">
                 <div className="form-floating mt-5">
                     <input  
@@ -99,18 +95,11 @@ const ListMenu = () => {
                 <div className="form-floating mt-5">
                     <input  
                             className="form-control" 
-                            id="floatingInfo" 
-                            value={Info} 
-                            onChange={(e)=> setInfo(e.target.value)}/>
-                    <label for="floatingInfo">INPUT THE INFO</label>
-                 </div>
-                 <div className="form-floating mt-5">
-                    <input  
-                            className="form-control" 
-                            id="floatingPrice" 
-                            value={Price} 
-                            onChange={(e)=> setPrice(e.target.value)}/>
-                    <label for="floatingPrice">INPUT THE PRICE</label>
+                            id="floatingNote" 
+                            value={Note} 
+                            onChange={(e)=> setNote(e.target.value)}/>
+                            
+                    <label for="floatingNote">INPUT THE NOTE</label>
                  </div><br/>
                 <button className="btn btn-primary d-grid gap-5 col-4 mx-auto" onClick={OnSubmit}>
                    {Button}
@@ -131,7 +120,6 @@ const ListMenu = () => {
                             <th>Country</th>
                             <th>City</th>
                             <th>Info</th>
-                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -141,8 +129,7 @@ const ListMenu = () => {
                                 <tr key={item.id}>
                                     <td>{item.Country}</td>
                                     <td>{item.City}</td>
-                                    <td>{item.Info}</td>
-                                    <td>{item.Price}</td>
+                                    <td>{item.Note}</td>
                                     <td>
                                         <button 
                                             className="btn btn-primary"
@@ -165,4 +152,4 @@ const ListMenu = () => {
     )
 }
 
-export default ListMenu;
+export default Request;

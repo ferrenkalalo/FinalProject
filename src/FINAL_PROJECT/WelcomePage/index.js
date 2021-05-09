@@ -21,7 +21,7 @@ const WelcomePage = () => {
                 <div className="card">
                     <div className="card-body">
                         <div className="card-text text-center text-dark ">
-                        <h3 className="fw-lighter">This website is a place where you can buy EXO concert ticket</h3>
+                        <h3 className="fw-lighter">this website is a place where you can request EXO concert to come to your city</h3>
                         </div>
                     </div>
                 </div> <br/><br/>

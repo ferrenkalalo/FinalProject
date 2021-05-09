@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import firebase from "../Config/Firebase";
+import NavBar from '../Navbar';
 
 
-const Admin = () => {
+const List = () => {
 
     const [Concert, setConcert] = useState([]);
 
@@ -27,15 +28,16 @@ const Admin = () => {
     }, []);
 
     return (
+        <div>
+            <NavBar/>
         <div className="p-5 bg-light">
-            <h1 className="text-center text-info"> LIST CONCERT CITY </h1><br/><br/>
+            <h2 className="text-center text-info"> LIST OF YOUR REQUESTED CONCERT CITY </h2><br/><br/>
             <table className="table table-info table-borderless">
                     <thead className="table-info">
                         <tr>
                             <th>Country</th>
                             <th>City</th>
-                            <th>Info</th>
-                            <th>Price</th>
+                            <th className="  text-center">Note</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,16 +46,16 @@ const Admin = () => {
                                 <tr key={item.id}>
                                     <td>{item.Country}</td>
                                     <td>{item.City}</td>
-                                    <td>{item.Info}</td>
-                                    <td>{item.Price}</td>
+                                    <td className="text-center">{item.Note}</td>
                                 </tr>
                             ))
                         }
                     </tbody>
-                </table>
-
+            </table><br/><br/>
+            <h5 className="text-center text-info"> - may your wish come true - </h5>
+        </div>
         </div>
     )
 }
 
-export default Admin;
+export default List;
